@@ -1,20 +1,20 @@
 # Arbol Binario en Java
 Este es un manual informativo para entender los comportamientos del Arbol binario y comprender los metodos que hacen que funcione.
 ## Indice
-
-* [Nodo](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#nodo)
-* [Arbol binario](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#arbol-binario)
-  * [Insertar](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#insertar)
-  * [Insertar elementos aleatorios](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#insertar-elementos-aleatorios)
-  * [Buscar elementos](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#buscar-elementos)
-  * [Mostrar Pre Order](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#mostrar-pre-order)
-  * [Mostrar Pre Order Invertido](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#mostrar-pre-order-invertido)
-  * [Mostrar In Order](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#mostrar-in-order)
-  * [Mostrar In Order Invertido](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#mostrar-in-order-invertido)
-  * [Mostrar Post Order](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#mostrar-post-order)
-  * [Mostrar Post Order Invertido](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#mostrar-post-order-invertido)
-  * [Eliminar elemento](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#eliminar-elemento)
-  * [Eliminar Arbol](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#eliminar-arbol)
+         
+* [Nodo](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#nodo)
+* [Arbol binario](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#arbol-binario)
+  * [Insertar](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#insertar)
+  * [Insertar elementos aleatorios](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#insertar-elementos-aleatorios)
+  * [Buscar elementos](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#buscar-elementos)
+  * [Mostrar Pre Order](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#mostrar-pre-oder)
+  * [Mostrar Pre Order Invertido](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#mostrar-pre-order-invertido)
+  * [Mostrar In Order](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#mostrar-in-order)
+  * [Mostrar In Order Invertido](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#mostrar-in-order-invertido)
+  * [Mostrar Post Order](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#mostrar-post-order)
+  * [Mostrar Post Order Invertido](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#mostrar-post-order-invertido)
+  * [Eliminar elemento](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#eliminar-elemento)
+  * [Eliminar Arbol](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario?tab=readme-ov-file#eliminar-arbol)
 ## Nodo
 Para comenzar con la explicacion primero tenemos que entender lo que es un nodo. 
 Un nodo es la posicion en donde se almacenara la informacion dentro del arbol. 
