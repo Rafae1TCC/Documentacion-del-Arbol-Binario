@@ -16,7 +16,6 @@ public class Arbolbin {
 
     public void insertar(int elemento) {
 
-        //Nodo aux = new Nodo(elemento);
         Nodo nuevo = new Nodo(elemento);
         boolean direccion = false; //true = izquierda, false = derecha
 
@@ -104,7 +103,7 @@ public class Arbolbin {
     }
 
     public void mostrarInOrderInvertido(Nodo aux) {
-        if (!vacia()) {
+        if (aux != null) {
             mostrarInOrderInvertido(aux.derecha);
             System.out.println(" / " + aux.getElemento());
             mostrarInOrderInvertido(aux.izquierda);
@@ -112,7 +111,7 @@ public class Arbolbin {
     }
     
     public void mostrarPostOrderInvertido(Nodo aux) {
-        if (!vacia()) {
+        if (aux != null) {
             
             System.out.println(" / " + aux.getElemento());
             mostrarPostOrderInvertido(aux.derecha);
