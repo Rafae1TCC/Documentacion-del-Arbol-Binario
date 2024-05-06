@@ -152,7 +152,7 @@ Si tenemos como raiz un 2, en la rama derecha un 3 y en la rama izquierda un 1, 
 ## Mostrar Post Order Invertido
 Pre order invertido es un metodo que imprime un post order pero comienza desde la raiz a la derecha y por ultimo la izquierda. 
 Por lo tanto, si ingresas 2, 3 y 1 e imprimes el pre order invertido el resultado en pantalla es: 2,3,1.
-##Eliminar elemento
+## Eliminar elemento
 Para eliminar el elemento deseado primero debemos buscar el elemento dentro del arbol. 
 Para eso hacemos uso de este if que siga la misma logica de los metodos de busqueda anteriores y una llamada recursiva al metodo.
 ~~~
@@ -196,7 +196,7 @@ if(aux.izquierda != null || aux.derecha !=null){
                     }
                 }
 ~~~
-##Eliminar arbol
+## Eliminar arbol
 Este metodo envia la raiz a nulo, por lo que todos los nodos almacenados en el arbol desaparecen; eliminando el arbol por completo.
 ~~~
 public void eliminarArbol() { // Elimina todo el arbol`
