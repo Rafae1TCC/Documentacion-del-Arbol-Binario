@@ -2,7 +2,7 @@
 Este es un manual informativo para entender los comportamientos del Arbol binario y comprender los metodos que hacen que funcione.
 ## Indice
 
-* [Nodo](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#nodo)
+* [Nodo](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/blob/main/README.md#nodo)
 * [Arbol binario](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#arbol-binario)
   * [Insertar](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#insertar)
   * [Insertar elementos aleatorios](https://github.com/Rafae1TCC/Documentacion-del-Arbol-Binario/new/main?filename=README.md#insertar-elementos-aleatorios)
