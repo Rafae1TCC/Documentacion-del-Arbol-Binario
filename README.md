@@ -159,43 +159,64 @@ Para eso hacemos uso de este if que siga la misma logica de los metodos de busqu
 if (elemento == aux.getElemento()) {
 } else {  
   if (elemento < aux.getElemento()) {
-    eliminar(aux.izquierda,elemento, aux);
+         aux = aux.izquierda; 
   } else {
-    eliminar(aux.derecha,elemento, aux);
+         aux = aux.derecha; 
   }
 ~~~
-Si el elemento existe dentro del arbol hay 3 casos distintos que determinan la manera en la que se elimina el elemento.
-* Caso #1: Existe un unico nodo
-En este caso realmente no se debe hacer una busqueda porque el unico elemento que existe dentro dentro del arbol coincide con el elemento que se desea eliminar,
-por lo tanto simplemente se llama a la funcion eliminar arbol.
-~~~
-if (raiz.izquierda == null && raiz.derecha == null) { //caso 1 raiz no tiene hijos
-                eliminarArbol();
-~~~
-* Caso #2: El nodo encontrado no tiene hijos.
+Si el elemento existe dentro del arbol hay 4 casos distintos que determinan la manera en la que se elimina el elemento.
+* Caso #1: El nodo encontrado no tiene mas ramas.
 En este caso el arbol contiene al menos un nodo mas, el algoritmo de busqueda encontro al elemento que se desea eliminar y el nodo no tiene otra ramificacion a la izquierda ni a la derecha.
-Hacemos uso de un Nodo anterior para poder cortar la conexion del nodo anterior con el ultimo y se envia a nulo, eliminando el elemento.
+Hacemos uso de un if para verificar desde que lado debemos reasignar el valor del arbol y cortar la conexion, eliminando el elemento.
 ~~~
-if(aux.izquierda == null && aux.derecha == null){
-                    if(anterior.izquierda!=null&&elemento == anterior.izquierda.getElemento()){
-                        anterior.izquierda=null;
-                    }else{
-                        anterior.derecha=null;
+if (aux.izquierda == null && aux.derecha == null) { // Si el nodo no tiene hijos
+                    if (ant.izquierda == aux) { 
+                        ant.izquierda = null; 
+                    } else {
+                        ant.derecha = null; 
+                    }
+~~~
+* Caso #2: El nodo encontrado no tiene ramas a la izquierda pero si a la derecha.
+En este caso, el nodo encontrado no tiene ramificaciones a la izquierda, por lo que para eliminar el nodo debemos de revisar si el nodo anterior desde la izquierda tiene el mismo valor que el elemento que deseamos eliminar; en este caso el elemento tiene el valor de aux. Si es asi, anterior izquierda toma el valor de aux derecha y se le asignan todas las ramas que contenia la raiz desde la derecha al nodo anterior en la izquierda. Si no es asi, se le asignan todas las ramas al valor anterior desde la derecha.
+~~~
+ else if (aux.izquierda == null && aux.derecha != null) { // Si el nodo actual no tiene hijo izquierdo y si tiene hijo derecho
+                    if (ant.izquierda == aux) { 
+                        ant.izquierda = aux.derecha; 
+                    } else {
+                        ant.derecha = aux.derecha; 
+                    }
+~~~
+* Caso #3: El nodo encontrado tiene ramas a la izquierda pero no a la derecha.
+En este caso, el nodo encontrado tiene ramificaciones a la izquierda. Para eliminar el nodo haremos el mismo proceso que el caso anterior solo que ahora en vez de asignar los valores de la raiz desde la derecha, se asignan desde la izquierda.
+~~~
+else if (aux.izquierda != null && aux.derecha == null) { // Si el nodo actual tiene hijo izquierdo y no tiene hijo derecho
+                    if (ant.izquierda == aux) {  
+                        ant.izquierda = aux.izquierda; 
+                    } else { 
+                        ant.derecha = aux.izquierda;
+                    }
+~~~
+* Caso #4: El nodo encontrado tiene ramas a la izquierda y a la derecha.
+En este caso, el nodo encontrado tiene ramificaciones a la izquierda y a la derecha. Para este caso primero tenemos un while que nos compara el valor de aux izquierda con nulo; este while nos permite iterar por la izquierda del arbol hasta encontrar el elementio. Despues de encontrar el elemento vamos moviendo los elementos que existan desde la derecha a un nodo anterior. En cuanto terminemos de mover todos, entraremos a la condicion else que eliminara el nodo donde se encuentra el elemento objetivo y reconecta los demas nodos para que el arbol siga funcionando.
+~~~
+else { // Si el nodo actual tiene dos hijos
+                    Nodo aux2 = aux.derecha; 
+                    Nodo ant2 = aux; 
+                    while (aux2.izquierda != null) { 
+                        ant2 = aux2; 
+                        aux2 = aux2.izquierda; 
+                    }
+                    aux.elemento = aux2.elemento; // El elemento del nodo actual es igual al elemento del nodo auxiliar
+                    if (ant2.izquierda== aux2) { 
+                        ant2.izquierda = aux2.derecha;
+                    } else { 
+                        ant2.derecha = aux2.derecha; 
+                        aux2.derecha=null;
+                        aux2=null;
                     }
                 }
 ~~~
-* Caso #3: El nodo encontrado si tiene hijos.
-En este caso el arbol contiene al menos un nodo mas, el algoritmo de busqueda encontro al elemento que se desea eliminar y el nodo tiene otra ramificacion a la izquierda o a la derecha.
-Hacemos uso de un Nodo anterior para poder cortar la conexion del nodo anterior con el ultimo y se envia a nulo, eliminando el elemento.
-~~~
-if(aux.izquierda != null || aux.derecha !=null){
-                    if(anterior.izquierda!=null&&anterior.derecha==null){
-                        aux.izquierda=anterior.izquierda;
-                    }else{
-                        aux.derecha=anterior.derecha;
-                    }
-                }
-~~~
+
 ## Eliminar arbol
 Este metodo envia la raiz a nulo, por lo que todos los nodos almacenados en el arbol desaparecen; eliminando el arbol por completo.
 ~~~
