@@ -119,40 +119,52 @@ public class Arbolbin {
         }
     }
     
-    public void eliminar(Nodo aux, int elemento, Nodo anterior) {
-        //caso 1 hay un solo nodo
-        
-        
-        
-        if (elemento == aux.getElemento()) {
-            //Entra solamente cuando el elemento ya coincidio
-            if (raiz.izquierda == null && raiz.derecha == null) { //caso 1 raiz tiene 1 solo hijo
-                eliminarArbol();
-            } else {
-                //caso 2 el noodo no tiene hijos
-                if(aux.izquierda == null && aux.derecha == null){
-                    if(anterior.izquierda!=null&&elemento == anterior.izquierda.getElemento()){
-                        anterior.izquierda=null;
-                    }else{
-                        anterior.derecha=null;
+    public void eliminar(int elemento) {
+        Nodo aux = raiz;
+        Nodo ant = null;
+        while (aux != null) { 
+            if (aux.getElemento() == elemento) {  
+                if (aux.izquierda == null && aux.derecha == null) { // Si el nodo no tiene hijos
+                    if (ant.izquierda == aux) { 
+                        ant.izquierda = null; 
+                    } else {
+                        ant.derecha = null; 
+                    }
+                } else if (aux.izquierda == null && aux.derecha != null) { // Si el nodo actual no tiene hijo izquierdo y si tiene hijo derecho
+                    if (ant.izquierda == aux) { 
+                        ant.izquierda = aux.derecha; 
+                    } else {
+                        ant.derecha = aux.derecha; 
+                    }
+                } else if (aux.izquierda != null && aux.derecha == null) { // Si el nodo actual tiene hijo izquierdo y no tiene hijo derecho
+                    if (ant.izquierda == aux) {  
+                        ant.izquierda = aux.izquierda; 
+                    } else { 
+                        ant.derecha = aux.izquierda;
+                    }
+                } else { // Si el nodo actual tiene dos hijos
+                    Nodo aux2 = aux.derecha; 
+                    Nodo ant2 = aux; 
+                    while (aux2.izquierda != null) { 
+                        ant2 = aux2; 
+                        aux2 = aux2.izquierda; 
+                    }
+                    aux.elemento = aux2.elemento; // El elemento del nodo actual es igual al elemento del nodo auxiliar
+                    if (ant2.izquierda== aux2) { 
+                        ant2.izquierda = aux2.derecha;
+                    } else { 
+                        ant2.derecha = aux2.derecha; 
+                        aux2.derecha=null;
+                        aux2=null;
                     }
                 }
-                //caso 3 el nodo tiene hijos
-                if(aux.izquierda != null || aux.derecha !=null){
-                    if(anterior.izquierda!=null&&anterior.derecha==null){
-                        aux.izquierda=anterior.izquierda;
-                    }else{
-                        aux.derecha=anterior.derecha;
-                    }
-                }
+                return; 
             }
-        //Else del primer if    
-        } else {
-            
-            if (elemento < aux.getElemento()) {
-                eliminar(aux.izquierda,elemento, aux);
-            } else {
-                eliminar(aux.derecha,elemento, aux);
+            ant = aux; // El nodo anterior es igual al nodo actual
+            if (elemento < aux.getElemento()) { 
+                aux = aux.izquierda; 
+            } else { 
+                aux = aux.derecha; 
             }
         }
     }
